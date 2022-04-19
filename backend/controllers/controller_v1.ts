@@ -25,8 +25,7 @@ const health = (req: any, res: any) => {
 const search = async (req: any, res: any) => {
     let sort_by = req.query.sort_by;
     const searchData = await yelpSearch(sort_by)
-    console.log(searchData?.data)
-    res.send(searchData?.data)
+    res.send(searchData?.data?.businesses)
 }
 
 export { search, health }
