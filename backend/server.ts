@@ -1,14 +1,12 @@
 import express from "express";
+import router from "./routes/routes_v1";
+import 'dotenv/config'
 
 const app = express();
 const port = process.env.PORT || 8080
 
-const currency: number = 1000;
-
-app.get("/", (req, res) => {
-    res.send(`Well Done Typescript, you have $${currency}`);
-})
+app.use('/api/v1', router)
 
 app.listen(port, () => {
-    console.log(`The application is running on port ${port}`)
-})
+    console.log(`The application is running on port ${port}`);
+});
