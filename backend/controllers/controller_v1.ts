@@ -2,12 +2,12 @@ import 'dotenv/config';
 const axios = require('axios').default;
 
 const yelpSearch = async (
-    sort_by: string = 'review_count',
+    sort_by: string = 'best_match',
     latitude: number = 38.985,
     longitude: number = -77.095 
     ) => {
     const API_KEY = process.env.API_KEY
-    const URL = `https://api.yelp.com/v3/businesses/search?open_now=true&categories=restaurant&latitude=${latitude}&longitude=${longitude}&sort_by=${sort_by}`
+    const URL = `https://api.yelp.com/v3/businesses/search?radius=20000&limit=50&open_now=true&term=restaurant&latitude=${latitude}&longitude=${longitude}&sort_by=${sort_by}`
     return await axios({
         url: URL,
         method: 'get',
